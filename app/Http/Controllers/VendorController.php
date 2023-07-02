@@ -84,5 +84,5 @@ class VendorController extends Controller
 
         return redirect()->back()->with($notification);
 
-    }
+    }// END VendorProfileStore
 }
