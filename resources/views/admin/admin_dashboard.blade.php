@@ -80,6 +80,8 @@
 	<script src="{{ asset('adminbackend/assets/plugins/sparkline-charts/jquery.sparkline.min.js')}}"></script>
 	<script src="{{ asset('adminbackend/assets/plugins/jquery-knob/excanvas.js')}}"></script>
 	<script src="{{ asset('adminbackend/assets/plugins/jquery-knob/jquery.knob.js')}}"></script>
+
+
 	  <script>
 		  $(function() {
 			  $(".knob").knob();
@@ -123,6 +125,10 @@
 			} );
 		</script>
 	<!--Datatable-->
+
+	{{-- Validation Message JS --}}
+	<script src="{{ asset('adminbackend/assets/js/validate.min.js') }}"></script>
+	{{-- End Validation Message JS --}}
 
 </body>
 
