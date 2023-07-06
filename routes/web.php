@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Backend\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,3 +73,16 @@ Route::middleware(['auth', 'role:vendor'])->group(function() {
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login');
+
+
+// ----------- Admin Backend ----------- //
+
+Route::middleware(['auth', 'role:admin'])->group(function(){
+
+    Route::controller(BrandController::class)->group(function() {
+
+        // ----------- Brand Routes ----------- //
+        Route::get('/all/brand', 'AllBrand')->name('all.brand');
+
+    });
+});
