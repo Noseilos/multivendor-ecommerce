@@ -117,18 +117,24 @@
 	{{-- END Toaster JS --}}
 
 
-	<!--Datatable-->
+	<!-- Datatable -->
 		<script src="{{ asset('adminbackend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 		<script>
 			$(document).ready(function() {
 				$('#example').DataTable();
 			} );
 		</script>
-	<!--Datatable-->
+	<!-- End Datatable -->
 
 	{{-- Validation Message JS --}}
 	<script src="{{ asset('adminbackend/assets/js/validate.min.js') }}"></script>
 	{{-- End Validation Message JS --}}
+
+	{{-- Sweet Alert JS --}}
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ 	<script src="{{ asset('adminbackend/assets/js/code.js') }}"></script>
+	{{-- End Sweet Alert JS --}}
+
 
 </body>
 
