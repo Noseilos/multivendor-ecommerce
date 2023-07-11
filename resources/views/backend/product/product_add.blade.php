@@ -25,13 +25,16 @@
   <div class="card-body p-4">
 	  <h5 class="card-title">Add New Product</h5>
 	  <hr/>
+
+      <form id="myForm" method="post" action="{{ route('store.category') }}" enctype="multipart/form-data" >
+        @csrf
        <div class="form-body mt-4">
 	    <div class="row">
 		   <div class="col-lg-8">
            <div class="border border-3 p-4 rounded">
 
 
-			<div class="mb-3">
+			<div class="form-group mb-3">
 				<label for="inputProductTitle" class="form-label">Product Name</label>
 				<input type="text" name="product_name" class="form-control" id="inputProductTitle" placeholder="Enter product title">
 			  </div>
@@ -53,7 +56,7 @@
 
 
 
-			  <div class="mb-3">
+			  <div class="form-group mb-3">
 				<label for="inputProductDescription" class="form-label">Short Description</label>
 				<textarea name="short_descp" class="form-control" id="inputProductDescription" rows="3"></textarea>
 			  </div>
@@ -65,7 +68,7 @@
 
 
 
-  <div class="mb-3">
+              <div class="form-group mb-3">
 				<label for="inputProductTitle" class="form-label">Main Thumbnail</label>
 				<input name="product_thambnail" class="form-control" type="file" id="formFile" onChange="mainThamUrl(this)" >
 
@@ -74,7 +77,7 @@
 
 
 
-  <div class="mb-3">
+              <div class="form-group mb-3">
 				<label for="inputProductTitle" class="form-label">Multiple Image</label>
 				<input class="form-control" name="multi_img[]" type="file" id="multiImg" multiple="">
 
@@ -88,7 +91,7 @@
 		   <div class="col-lg-4">
 			<div class="border border-3 p-4 rounded">
               <div class="row g-3">
-				<div class="col-md-6">
+				<div class="form-group col-md-6">
 					<label for="inputPrice" class="form-label">Product Price</label>
 					<input type="text" name="selling_price" class="form-control" id="inputPrice" placeholder="00.00">
 				  </div>
@@ -96,15 +99,15 @@
 					<label for="inputCompareatprice" class="form-label">Discount Price </label>
 					<input type="text" name="discount_price" class="form-control" id="inputCompareatprice" placeholder="00.00">
 				  </div>
-				  <div class="col-md-6">
+				  <div class="form-group col-md-6">
 					<label for="inputCostPerPrice" class="form-label">Product Code</label>
 					<input type="text" name="product_code" class="form-control" id="inputCostPerPrice" placeholder="00.00">
 				  </div>
-				  <div class="col-md-6">
+				  <div class="form-group col-md-6">
 					<label for="inputStarPoints" class="form-label">Product Quantity</label>
 					<input type="text" name="product_qty" class="form-control" id="inputStarPoints" placeholder="00.00">
 				  </div>
-				  <div class="col-12">
+				  <div class="form-group col-12">
 					<label for="inputProductType" class="form-label">Product Brand</label>
 					<select name="brand_id" class="form-select" id="inputProductType">
 						<option></option>
@@ -114,7 +117,7 @@
 					  </select>
 				  </div>
 
-				  <div class="col-12">
+				  <div class="form-group col-12">
 					<label for="inputVendor" class="form-label">Product Category</label>
 					<select name="category_id" class="form-select" id="inputVendor">
 						<option></option>
@@ -123,7 +126,7 @@
 						 @endforeach
 					  </select>
 				  </div>
-				  <div class="col-12">
+				  <div class="form-group col-12">
 					<label for="inputCollection" class="form-label">Product SubCategory</label>
 					<select name="subcategory_id" class="form-select" id="inputCollection">
 						<option></option>
@@ -190,7 +193,7 @@
 
 				  <div class="col-12">
 					  <div class="d-grid">
-                         <button type="button" class="btn btn-primary">Save Product</button>
+                        <input type="submit" class="btn btn-primary px-4" value="Save Changes" />
 					  </div>
 				  </div>
 			  </div> 
@@ -199,11 +202,88 @@
 	   </div><!--end row-->
 	</div>
   </div>
+</form>
 </div>
 
 			</div>
 
+            {{-- validation --}}
 
+            <script type="text/javascript">
+                $(document).ready(function (){
+                    $('#myForm').validate({
+                        rules: {
+                            product_name: {
+                                required : true,
+                            }, 
+                             short_descp: {
+                                required : true,
+                            }, 
+                             product_thambnail: {
+                                required : true,
+                            }, 
+                             multi_img: {
+                                required : true,
+                            }, 
+                             selling_price: {
+                                required : true,
+                            },                   
+                             product_code: {
+                                required : true,
+                            }, 
+                             product_qty: {
+                                required : true,
+                            }, 
+                             brand_id: {
+                                required : true,
+                            }, 
+                             category_id: {
+                                required : true,
+                            }, 
+                             subcategory_id: {
+                                required : true,
+                            }, 
+                        },
+                        messages :{
+                            product_name: {
+                                required : 'Please Enter Product Name',
+                            },
+                            short_descp: {
+                                required : 'Please Enter Short Description',
+                            },
+                            product_thambnail: {
+                                required : 'Please Select Product Thambnail Image',
+                            },
+                            multi_img: {
+                                required : 'Please Select Product Multi Image',
+                            },
+                            selling_price: {
+                                required : 'Please Enter Selling Price',
+                            }, 
+                            product_code: {
+                                required : 'Please Enter Product Code',
+                            },
+                             product_qty: {
+                                required : 'Please Enter Product Quantity',
+                            },
+                        },
+                        errorElement : 'span', 
+                        errorPlacement: function (error,element) {
+                            error.addClass('invalid-feedback');
+                            element.closest('.form-group').append(error);
+                        },
+                        highlight : function(element, errorClass, validClass){
+                            $(element).addClass('is-invalid');
+                        },
+                        unhighlight : function(element, errorClass, validClass){
+                            $(element).removeClass('is-invalid');
+                        },
+                    });
+                });
+                
+            </script>
+
+            {{-- Image Show --}}
 
             <script type="text/javascript">
                 function mainThamUrl(input){
@@ -217,7 +297,8 @@
                 }
             </script>
             
-            
+            {{-- multi image show --}}
+
             <script> 
              
               $(document).ready(function(){
@@ -247,6 +328,8 @@
               });
                
               </script>
+
+              {{-- category ajax --}}
 
 <script type="text/javascript">
   		
