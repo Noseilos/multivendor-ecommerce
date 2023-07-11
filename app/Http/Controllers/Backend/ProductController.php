@@ -19,4 +19,14 @@ class ProductController extends Controller
         return view('backend.product.product_all',compact('products'));
 
     } // END AllProduct 
+
+
+
+
+
+    public function AddProduct(){
+
+        return view('backend.product.product_add');
+
+    } // END AddProduct 
 }
