@@ -1,7 +1,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{ asset('adminbackend/assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
+            <img src="{{ asset('adminbackend/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
             <h4 class="logo-text">Admin</h4>
@@ -77,8 +77,23 @@
             </ul>
         </li>
 
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Slider Manage</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.slider') }}"><i class="bx bx-right-arrow-alt"></i>All Slider</a>
+                </li>
+                <li> <a href="{{ route('add.product') }}"><i class="bx bx-right-arrow-alt"></i>Add Slider</a>
+                </li>
+
+            </ul>
+        </li>
+
         <li class="menu-label">UI Elements</li>
-        
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -123,7 +138,8 @@
                 </li>
                 <li> <a href="component-paginations.html"><i class="bx bx-right-arrow-alt"></i>Pagination</a>
                 </li>
-                <li> <a href="component-popovers-tooltips.html"><i class="bx bx-right-arrow-alt"></i>Popovers & Tooltips</a>
+                <li> <a href="component-popovers-tooltips.html"><i class="bx bx-right-arrow-alt"></i>Popovers &
+                        Tooltips</a>
                 </li>
                 <li> <a href="component-progress-bars.html"><i class="bx bx-right-arrow-alt"></i>Progress</a>
                 </li>
@@ -165,10 +181,10 @@
                 </li>
             </ul>
         </li>
-        
-        
-        
-        
+
+
+
+
         <li class="menu-label">Charts & Maps</li>
         <li>
             <a class="has-arrow" href="javascript:;">
@@ -185,9 +201,9 @@
                 </li>
             </ul>
         </li>
-        
-        
-        
+
+
+
         <li>
             <a href="" target="_blank">
                 <div class="parent-icon"><i class="bx bx-support"></i>
