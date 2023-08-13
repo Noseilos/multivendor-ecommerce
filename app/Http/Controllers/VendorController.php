@@ -64,7 +64,7 @@ class VendorController extends Controller
         $data->phone = $request->phone;
         $data->address = $request->address; 
         $data->vendor_join = $request->vendor_join; 
-        $data->vendor_short_info = $request->vendor_short_info; 
+        $data->vendor_info = $request->vendor_short_info; 
 
 
         if ($request->file('photo')) {
