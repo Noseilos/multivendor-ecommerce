@@ -72,7 +72,8 @@
                             <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
-                                        <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                        <a
+                                            href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
                                             <img class="default-img" src="{{ asset($product->product_thambnail) }}"
                                                 alt="" />
 
@@ -108,7 +109,8 @@
                                     <div class="product-category">
                                         <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
                                     </div>
-                                    <h2><a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                    <h2><a
+                                            href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
                                             {{ $product->product_name }} </a></h2>
                                     <div class="product-rate-cover">
                                         <div class="product-rate d-inline-block">
@@ -208,42 +210,28 @@
                 <!-- Product sidebar Widget -->
                 <div class="sidebar-widget product-sidebar mb-30 p-30 bg-grey border-radius-10">
                     <h5 class="section-title style-1 mb-30">New products</h5>
-                    <div class="single-post clearfix">
-                        <div class="image">
-                            <img src="assets/imgs/shop/thumbnail-3.jpg" alt="#" />
-                        </div>
-                        <div class="content pt-10">
-                            <h5><a href="shop-product-detail.html">Chen Cardigan</a></h5>
-                            <p class="price mb-0 mt-5">$99.50</p>
-                            <div class="product-rate">
-                                <div class="product-rating" style="width: 90%"></div>
+                    @foreach ($newProduct as $product)
+                        <div class="single-post clearfix">
+                            <div class="image">
+                                <img src="{{ asset($product->product_thambnail) }}" alt="#" />
+                            </div>
+                            <div class="content pt-10">
+                                <p><a
+                                        href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">{{ $product->product_name }}</a>
+                                </p>
+
+                                @if ($product->discount_price == null)
+                                    <p class="price mb-0 mt-5">${{ $product->selling_price }}</p>
+                                @else
+                                    <p class="price mb-0 mt-5">${{ $product->discount_price }}</p>
+                                @endif
+
+                                <div class="product-rate">
+                                    <div class="product-rating" style="width: 90%"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="single-post clearfix">
-                        <div class="image">
-                            <img src="assets/imgs/shop/thumbnail-4.jpg" alt="#" />
-                        </div>
-                        <div class="content pt-10">
-                            <h6><a href="shop-product-detail.html">Chen Sweater</a></h6>
-                            <p class="price mb-0 mt-5">$89.50</p>
-                            <div class="product-rate">
-                                <div class="product-rating" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-post clearfix">
-                        <div class="image">
-                            <img src="assets/imgs/shop/thumbnail-5.jpg" alt="#" />
-                        </div>
-                        <div class="content pt-10">
-                            <h6><a href="shop-product-detail.html">Colorful Jacket</a></h6>
-                            <p class="price mb-0 mt-5">$25</p>
-                            <div class="product-rate">
-                                <div class="product-rating" style="width: 60%"></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
 
