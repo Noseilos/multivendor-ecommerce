@@ -27,9 +27,7 @@ use App\Http\Controllers\Frontend\IndexController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+Route::get('/', [IndexController::class, 'Index']);
 
 Route::middleware(['auth'])->group(function(){
 
