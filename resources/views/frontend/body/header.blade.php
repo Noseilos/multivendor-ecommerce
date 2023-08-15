@@ -111,7 +111,15 @@
                             </div>
 
                             <div class="header-action-icon-2">
-                                <a href="shop-wishlist.html">
+                                <a href="{{ route('compare') }}">
+                                    <img class="svgInject" alt="Nest"
+                                        src="{{ asset('frontend/assets/imgs/theme/icons/icon-compare.svg') }}" />
+                                </a>
+                                <a href="{{ route('compare') }}"><span class="lable ml-0">Compare</span></a>
+                            </div>
+
+                            <div class="header-action-icon-2">
+                                <a href="{{ route('wishlist') }}">
                                     <img class="svgInject" alt="Nest"
                                         src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg') }}" />
                                     <span class="pro-count blue" id="wishQty"> </span>
@@ -330,7 +338,7 @@
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
                         <div class="header-action-icon-2">
-                            <a href="shop-wishlist.html">
+                            <a href="{{ route('wishlist') }}">
                                 <img alt="Nest"
                                     src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg') }}" />
                                 <span class="pro-count white">4</span>
@@ -441,7 +449,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="shop-filter.html">Shop – Filter</a></li>
-                                <li><a href="shop-wishlist.html">Shop – Wishlist</a></li>
+                                <li><a href="{{ route('wishlist') }}">Shop – Wishlist</a></li>
                                 <li><a href="shop-cart.html">Shop – Cart</a></li>
                                 <li><a href="shop-checkout.html">Shop – Checkout</a></li>
                                 <li><a href="shop-compare.html">Shop – Compare</a></li>

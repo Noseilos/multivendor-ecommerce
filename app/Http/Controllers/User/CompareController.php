@@ -34,4 +34,9 @@ class CompareController extends Controller
         }
 
     } // End Method
+
+    public function AllCompare(){
+        
+        return view('frontend.compare.view_compare');
+    }// End Method 
 }
