@@ -256,5 +256,11 @@ Route::middleware(['auth','role:user'])->group(function() {
         Route::get('/compare-remove/{id}' , 'CompareRemove'); 
     }); 
 
+     // Cart All Route 
+    Route::controller(CartController::class)->group(function(){
+        Route::get('/mycart' , 'MyCart')->name('mycart');
+
+    }); 
+
 
 }); // end group middleware
