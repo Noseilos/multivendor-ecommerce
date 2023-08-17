@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CompareController;
+use App\Http\Controllers\User\CheckoutController;
 
 
 /*
@@ -291,6 +292,21 @@ Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
 Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
 Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
 
+// Checkout Page Route 
+
+Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
+
+
+
+// Cart All Route 
+Route::controller(CartController::class)->group(function(){
+    Route::get('/mycart' , 'MyCart')->name('mycart');
+    Route::get('/get-cart-product' , 'GetCartProduct');
+    Route::get('/cart-remove/{rowId}' , 'CartRemove');
+    Route::get('/cart-decrement/{rowId}' , 'CartDecrement');
+    Route::get('/cart-increment/{rowId}' , 'CartIncrement');
+
+}); 
 
 /// User All Route
 Route::middleware(['auth','role:user'])->group(function() {
@@ -311,13 +327,11 @@ Route::middleware(['auth','role:user'])->group(function() {
         Route::get('/compare-remove/{id}' , 'CompareRemove'); 
     }); 
 
-     // Cart All Route 
-    Route::controller(CartController::class)->group(function(){
-        Route::get('/mycart' , 'MyCart')->name('mycart');
-        Route::get('/get-cart-product' , 'GetCartProduct');
-        Route::get('/cart-remove/{rowId}' , 'CartRemove');
-        Route::get('/cart-decrement/{rowId}' , 'CartDecrement');
-        Route::get('/cart-increment/{rowId}' , 'CartIncrement');
+     // Checkout All Route 
+    Route::controller(CheckoutController::class)->group(function(){
+        Route::get('/district-get/ajax/{division_id}' , 'DistrictGetAjax');
+        Route::get('/state-get/ajax/{district_id}' , 'StateGetAjax');
+        Route::post('/checkout/store' , 'CheckoutStore')->name('checkout.store');
 
     }); 
 
