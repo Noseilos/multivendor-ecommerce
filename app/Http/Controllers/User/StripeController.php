@@ -18,22 +18,21 @@ class StripeController extends Controller
     public function StripeOrder(Request $request){
 
         if(Session::has('coupon')){
-            $total_amount = Session::get('coupon')['total_amount'];
+            $total_amount = str_replace(',', '', Session::get('coupon')['total_amount']);
         }else{
-            $total_amount = round(Cart::total());
+            $total_amount = str_replace(',', '', Cart::total());
         }
-
+    
         \Stripe\Stripe::setApiKey('sk_test_51Ng4htJvsr9hD9FJgzrtYZIKvJNH5b2qr0fUY78D7iB4aEeqvMyfLSMcKUbRpzFOrE9sOJFuTuLR5WXKsNVk7HMD00OidRFgdo');
-
-
+    
         $token = $_POST['stripeToken'];
-
+    
         $charge = \Stripe\Charge::create([
-          'amount' => $total_amount*100,
-          'currency' => 'usd',
-          'description' => 'Easy Mulit Vendor Shop',
-          'source' => $token,
-          'metadata' => ['order_id' => uniqid()],
+            'amount' => (int)$total_amount * 100,
+            'currency' => 'usd',
+            'description' => 'Easy Multi Vendor Shop',
+            'source' => $token,
+            'metadata' => ['order_id' => uniqid()],
         ]);
 
         //dd($charge);
@@ -122,9 +121,9 @@ class StripeController extends Controller
     public function CashOrder(Request $request){
 
         if(Session::has('coupon')){
-            $total_amount = Session::get('coupon')['total_amount'];
+            $total_amount = str_replace(',', '', Session::get('coupon')['total_amount']);
         }else{
-            $total_amount = round(Cart::total());
+            $total_amount = str_replace(',', '', Cart::total());
         }
 
 
