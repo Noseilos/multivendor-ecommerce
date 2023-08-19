@@ -52,4 +52,26 @@ class OrderController extends Controller
  
          return redirect()->route('admin.confirmed.order')->with($notification); 
     } // End Method
+
+    public function ConfirmToProcessing($order_id){
+        Order::findOrFail($order_id)->update(['status' => 'processing']);
+
+        $notification = array(
+             'message' => 'Order Processing',
+             'alert-type' => 'success'
+         );
+ 
+         return redirect()->route('admin.processing.order')->with($notification); 
+    } // End Method 
+
+    public function ProcessingToDelivered($order_id){
+        Order::findOrFail($order_id)->update(['status' => 'delivered']);
+
+        $notification = array(
+             'message' => 'Order To Be Delivered',
+             'alert-type' => 'success'
+         );
+ 
+         return redirect()->route('admin.delivered.order')->with($notification); 
+    } // End Method
 }
