@@ -61,15 +61,15 @@
                                                                     @if ($order->status == 'pending')
                                                                         <span
                                                                             class="badge rounded-pill bg-warning">Pending</span>
-                                                                    @elseif($order->status == 'confirm')
+                                                                    @elseif($order->status == 'confirmed')
                                                                         <span
                                                                             class="badge rounded-pill bg-info">Confirm</span>
                                                                     @elseif($order->status == 'processing')
                                                                         <span
                                                                             class="badge rounded-pill bg-danger">Processing</span>
-                                                                    @elseif($order->status == 'deliverd')
+                                                                    @elseif($order->status == 'delivered')
                                                                         <span
-                                                                            class="badge rounded-pill bg-success">Deliverd</span>
+                                                                            class="badge rounded-pill bg-success">Delivered</span>
                                                                     @endif
 
 
