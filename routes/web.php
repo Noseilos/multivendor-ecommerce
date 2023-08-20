@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
+use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
@@ -279,6 +280,11 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/admin/invoice/download/{id}' , 'AdminInvoiceDownload')->name('admin.invoice.download');
 
 
+    }); 
+
+    // Admin Order All Route 
+    Route::controller(ReturnController::class)->group(function(){
+       Route::get('/return/request' , 'ReturnRequests')->name('return.request');
     }); 
 
 }); // Admin End Middleware 

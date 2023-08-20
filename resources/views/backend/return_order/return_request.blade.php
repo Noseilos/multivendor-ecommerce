@@ -34,6 +34,7 @@
                                 <th>Amount </th>
                                 <th>Payment </th>
                                 <th>State </th>
+                                <th>Reason </th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,10 +46,19 @@
                                     <td>{{ $item->invoice_no }}</td>
                                     <td>${{ $item->amount }}</td>
                                     <td>{{ $item->payment_method }}</td>
-                                    <td> <span class="badge rounded-pill bg-success"> {{ $item->status }}</span></td>
+                                    <td>
+                                        @if ($item->return_order == 1)
+                                            <span class="badge rounded-pill bg-danger">Pending</span>
+                                        @elseif ($item->return_order == 2)
+                                            <span class="badge rounded-pill bg-success">Complete</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $item->return_reason }}</td>
 
                                     <td>
                                         <a href="{{ route('admin.order.details',$item->id) }}" class="btn btn-info" title="Details"><i class="fa fa-eye"></i>
+                                        </a>
+                                        <a href="{{ route('admin.order.details',$item->id) }}" class="btn btn-danger" title="Return Order"><i class="fa-solid fa-person-circle-check"></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -64,6 +74,7 @@
                                 <th>Amount </th>
                                 <th>Payment </th>
                                 <th>State </th>
+                                <th>Reason </th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
