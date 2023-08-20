@@ -256,17 +256,28 @@
             {{-- Return Order Option --}}
 
             @if ($order->status !== 'delivered')
+
             @else
-                <form action="{{ route('return.order', $order->id) }}" method="post">
-                    @csrf
 
-                    <div class="form-group" style=" font-weight: 600; font-size: initial; color: #000000; ">
-                        <label>Order Return Reason</label>
-                        <textarea name="return_reason" class="form-control" style="width: 40%;"></textarea>
-                    </div>
+            @php
+                $order = App\Models\Order::where('id', $order->id)->where('return_order','=',NULL)->first();
+            @endphp
 
-                    <button type="submit" class="btn-sm btn-danger" style="width: 40%;">Return Order</button>
-                </form>
+                @if ($order)
+                    <form action="{{ route('return.order', $order->id) }}" method="post">
+                        @csrf
+
+                        <div class="form-group" style=" font-weight: 600; font-size: initial; color: #000000; ">
+                            <label>Order Return Reason</label>
+                            <textarea name="return_reason" class="form-control" style="width: 40%;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-sm btn-danger" style="width: 40%;">Return Order</button>
+                    </form>
+                @else
+                    <h5><span class="" style="color: red;">You have sent a return request for this order</span></h5>
+                @endif
+                
             @endif
 
 
