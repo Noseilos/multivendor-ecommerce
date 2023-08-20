@@ -276,6 +276,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/admin/pending-confirm/{id}' , 'PendingToConfirm')->name('pending-confirm');
         Route::get('/admin/confirm-processing/{id}' , 'ConfirmToProcessing')->name('confirm-processing');
         Route::get('/admin/processing-delivered/{id}' , 'ProcessingToDelivered')->name('processing-delivered');
+        Route::get('/admin/invoice/download/{id}' , 'AdminInvoiceDownload')->name('admin.invoice.download');
 
 
     }); 
