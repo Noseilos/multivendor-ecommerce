@@ -286,6 +286,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(ReturnController::class)->group(function(){
        Route::get('/return/request' , 'ReturnRequests')->name('return.request');
        Route::get('/return/request/approve/{order_id}' , 'ReturnRequestsApproved')->name('return.request.approved');
+       Route::get('/return/request/complete' , 'ReturnRequestsComplete')->name('complete.return.request');
     }); 
 
 }); // Admin End Middleware 
