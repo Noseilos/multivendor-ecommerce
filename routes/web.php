@@ -107,6 +107,7 @@ Route::middleware(['auth', 'role:vendor'])->group(function() {
      // Brand All Route 
     Route::controller(VendorOrderController::class)->group(function(){
         Route::get('/vendor/order' , 'VendorOrder')->name('vendor.order');
+        Route::get('/vendor/return/order' , 'VendorReturnOrder')->name('vendor.return.order');
 
 
     });

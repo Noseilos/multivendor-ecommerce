@@ -72,7 +72,7 @@
                                                                             class="badge rounded-pill bg-success">Delivered</span>
                                                                     @endif
 
-                                                                    @if ($order->return_order == 1)
+                                                                    @if ($order->return_order >= 1)
                                                                         <span
                                                                         class="badge rounded-pill" style="background: red;">Return</span>
                                                                     @endif

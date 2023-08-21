@@ -260,7 +260,7 @@
             @else
 
             @php
-                $order = App\Models\Order::where('id', $order->id)->where('return_order','=',NULL)->first();
+                $order = App\Models\Order::where('id', $order->id)->where('return_order','=',0)->first();
             @endphp
 
                 @if ($order)
