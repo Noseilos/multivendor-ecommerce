@@ -46,15 +46,12 @@
 				<td> {{ $item->name }}  </td>
 				<td> {{ $item->email }}  </td>
 				<td> {{ $item->phone }}  </td>
-                @if ($item->status == 'active')
-                    
-				    <td><span class="badge badge-pill bg-success" style="font-size: 15px;">{{ $item->status }}</span></td>
-                
-                @else
 
-                    <td><span class="badge badge-pill bg-danger"  style="font-size: 15px;">{{ $item->status }}</span></td>
-
-                @endif
+				@if ($item->UserOnline())
+					<td><span class="badge badge-pill bg-success" style="font-size: 15px;">Online</span></td>
+				@else
+					<td><span class="badge badge-pill bg-danger"  style="font-size: 15px;">{{ Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}</span></td>
+				@endif
 
 				<td>
                     <a href="{{ route('edit.subcategory',$item->id) }}" class="btn btn-info">Edit</a>
