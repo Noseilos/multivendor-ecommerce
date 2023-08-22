@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\ReturnController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
@@ -285,11 +286,16 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
     }); 
 
-    // Admin Order All Route 
+    // Return Order All Route 
     Route::controller(ReturnController::class)->group(function(){
        Route::get('/return/request' , 'ReturnRequests')->name('return.request');
        Route::get('/return/request/approve/{order_id}' , 'ReturnRequestsApproved')->name('return.request.approved');
        Route::get('/return/request/complete' , 'ReturnRequestsComplete')->name('complete.return.request');
+    }); 
+
+    // Report All Route 
+    Route::controller(ReportController::class)->group(function(){
+       Route::get('/report/view' , 'ReportView')->name('report.view');
     }); 
 
 }); // Admin End Middleware 
