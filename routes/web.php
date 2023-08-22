@@ -297,6 +297,8 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(ReportController::class)->group(function(){
        Route::get('/report/view' , 'ReportView')->name('report.view');
        Route::post('/search/by/date' , 'ReportByDate')->name('search-by-date');
+       Route::post('/search/by/month' , 'ReportByMonth')->name('search-by-month');
+       Route::post('/search/by/year' , 'ReportByYear')->name('search-by-year');
     }); 
 
 }); // Admin End Middleware 
