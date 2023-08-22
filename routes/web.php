@@ -299,6 +299,10 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
        Route::post('/search/by/date' , 'ReportByDate')->name('search-by-date');
        Route::post('/search/by/month' , 'ReportByMonth')->name('search-by-month');
        Route::post('/search/by/year' , 'ReportByYear')->name('search-by-year');
+
+       
+       Route::get('/order/by/user' , 'OrderByUser')->name('order.by.user');
+       Route::post('/search/by/user' , 'ReportByUser')->name('search-by-user');
     }); 
 
 }); // Admin End Middleware 
