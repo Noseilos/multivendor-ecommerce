@@ -13,5 +13,12 @@ class ActiveUserController extends Controller
         $user = User::where('role','user')->latest()->get();
         return view('backend.users.all_user', compact('user'));
 
+    }// End Method 
+
+    public function AllVendor(){
+
+        $user = User::where('role','vendor')->latest()->get();
+        return view('backend.users.all_vendor', compact('user'));
+
     }// End Method
 }
