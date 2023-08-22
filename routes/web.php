@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ActiveUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -300,9 +301,13 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
        Route::post('/search/by/month' , 'ReportByMonth')->name('search-by-month');
        Route::post('/search/by/year' , 'ReportByYear')->name('search-by-year');
 
-       
        Route::get('/order/by/user' , 'OrderByUser')->name('order.by.user');
        Route::post('/search/by/user' , 'ReportByUser')->name('search-by-user');
+    }); 
+
+    // Report All Route 
+    Route::controller(ActiveUserController::class)->group(function(){
+       Route::get('/all/user' , 'AllUser')->name('all-user');
     }); 
 
 }); // Admin End Middleware 
