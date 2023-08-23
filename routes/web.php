@@ -326,6 +326,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(BlogController::class)->group(function(){
        Route::get('/admin/blog/post' , 'AllBlogPost')->name('all.blog.post');
        Route::get('/admin/add/blog/post' , 'AddBlogPost')->name('add.blog.post');
+       Route::post('/admin/store/blog/post' , 'StoreBlogPost')->name('store.blog.post');
     }); 
 
 }); // Admin End Middleware 
