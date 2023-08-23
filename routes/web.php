@@ -28,6 +28,7 @@ use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\AllUserController;
+use App\Http\Controllers\User\ReviewController;
 
 
 /*
@@ -393,6 +394,12 @@ Route::controller(BlogController::class)->group(function(){
     Route::get('/post/details/{id}/{slug}' , 'BlogDetails'); 
     Route::get('/post/category/{id}/{slug}' , 'BlogPostCategory');  
 
+});
+
+// Frontend Blog Post All Route 
+Route::controller(ReviewController::class)->group(function(){
+    Route::post('/store/review' , 'StoreReview')->name('store.review'); 
+   
 });
 
 /// User All Route
