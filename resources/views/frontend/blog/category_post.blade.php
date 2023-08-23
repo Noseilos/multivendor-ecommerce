@@ -84,7 +84,7 @@
         <h3 class="post-title mb-20">
             <a href="{{ url('post/details/'.$post->id.'/'.$post->post_slug) }}">{{ $post->post_title }}</a>
         </h3>
-        <p class="post-exerpt mb-40">{{ $post->post_short_description }}</p>
+        <p class="post-exerpt mb-40">{{ $post->post_short_desc }}</p>
         <div class="entry-meta meta-1 font-xs color-grey mt-10 pb-10">
             <div>
                 <span class="post-on">{{ $post->created_at->format('M d Y') }}</span>

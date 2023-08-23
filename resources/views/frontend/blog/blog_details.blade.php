@@ -55,7 +55,7 @@
     <div class="single-content">
     <div class="row">
         <div class="col-xl-10 col-lg-12 m-auto">
-            <p class="single-excerpt"> {!! $blogdetails->post_long_description !!} </p>
+            <p class="single-excerpt"> {!! $blogdetails->post_long_desc !!} </p>
             <!--Entry bottom-->
             <div class="entry-bottom mt-50 mb-30">
                 <div class="tags w-50 w-sm-100">
