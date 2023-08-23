@@ -390,6 +390,7 @@ Route::controller(CartController::class)->group(function(){
 // Frontend Blog Post All Route 
 Route::controller(BlogController::class)->group(function(){
     Route::get('/blog' , 'AllBlog')->name('home.blog');  
+    Route::get('/post/details/{id}/{slug}' , 'BlogDetails'); 
 
 });
 
