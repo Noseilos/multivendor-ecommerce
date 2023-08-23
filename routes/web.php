@@ -317,6 +317,9 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
        Route::get('/admin/blog/category' , 'AllBlogCategory')->name('all.blog.category');
        Route::get('/admin/add/blog/category' , 'AddBlogCategory')->name('add.blog.category');
        Route::post('/admin/store/blog/category' , 'StoreBlogCategory')->name('store.blog.category');
+       Route::get('/admin/edit/blog/category/{id}' , 'EditBlogCategory')->name('edit.blog.category');
+       Route::post('/admin/update/blog/category' , 'UpdateBlogCategory')->name('update.blog.category');
+       Route::get('/admin/delete/blog/category/{id}' , 'DeleteBlogCategory')->name('delete.blog.category');
     }); 
 
 }); // Admin End Middleware 

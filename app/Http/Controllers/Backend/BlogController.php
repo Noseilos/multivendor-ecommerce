@@ -22,10 +22,9 @@ class BlogController extends Controller
 
         return view('backend.blog.category.add_blog_category');
 
-    }// End Method
+    }// End Method 
 
     public function StoreBlogCategory(Request $request){
-
 
         BlogCategory::insert([
             'blog_category_name' => $request->blog_category_name,
@@ -35,6 +34,45 @@ class BlogController extends Controller
 
        $notification = array(
             'message' => 'Blog Category Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.blog.category')->with($notification); 
+
+    }// End Method 
+
+    public function EditBlogCategory($id){
+
+
+        $blog_category = BlogCategory::findOrFail($id);
+        return view('backend.blog.category.edit_blog_category', compact('blog_category')); 
+
+    }// End Method 
+
+    public function UpdateBlogCategory(Request $request){
+
+        $blog_category_id = $request->id;
+        BlogCategory::findOrFail($blog_category_id)->update([
+            'blog_category_name' => $request->blog_category_name,
+            'blog_category_slug' => strtolower(str_replace(' ', '-',$request->blog_category_name)),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Blog Category Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.blog.category')->with($notification); 
+
+    }// End Method
+
+    public function DeleteBlogCategory($id){
+
+        BlogCategory::findOrFail($id)->delete();
+        
+        $notification = array(
+            'message' => 'Blog Category Deleted Successfully',
             'alert-type' => 'success'
         );
 
