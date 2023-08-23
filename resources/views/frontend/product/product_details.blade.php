@@ -376,33 +376,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="single-comment justify-content-between d-flex mb-30 ml-30">
-                                                        <div class="user justify-content-between d-flex">
-                                                            <div class="thumb text-center">
-                                                                <img src="assets/imgs/blog/author-3.png" alt="" />
-                                                                <a href="#"
-                                                                    class="font-heading text-brand">Brenna</a>
-                                                            </div>
-                                                            <div class="desc">
-                                                                <div class="d-flex justify-content-between mb-10">
-                                                                    <div class="d-flex align-items-center">
-                                                                        <span class="font-xs text-muted">December 4, 2022
-                                                                            at 3:12 pm </span>
-                                                                    </div>
-                                                                    <div class="product-rate d-inline-block">
-                                                                        <div class="product-rating" style="width: 80%">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <p class="mb-10">Lorem ipsum dolor sit amet, consectetur
-                                                                    adipisicing elit. Delectus, suscipit exercitationem
-                                                                    accusantium obcaecati quos voluptate nesciunt facilis
-                                                                    itaque modi commodi dignissimos sequi repudiandae minus
-                                                                    ab deleniti totam officia id incidunt? <a
-                                                                        href="#" class="reply">Reply</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
                                                     <div class="single-comment justify-content-between d-flex">
                                                         <div class="user justify-content-between d-flex">
                                                             <div class="thumb text-center">
@@ -478,43 +452,63 @@
                                     <!--comment form-->
                                     <div class="comment-form">
                                         <h4 class="mb-15">Add a review</h4>
-                                        <div class="product-rate d-inline-block mb-30"></div>
-                                        <div class="row">
-                                            <div class="col-lg-8 col-md-12">
-                                                <form class="form-contact comment_form" action="#" id="commentForm">
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
-                                                                    placeholder="Write Comment"></textarea>
+
+                                        @guest
+                                            <p> <b>For Add Product Review. You Need To Login First <a
+                                                        href="{{ route('login') }}">Login Here </a> </b></p>
+                                        @else
+                                            <div class="row">
+                                                <div class="col-lg-8 col-md-12">
+                                                    <form class="form-contact comment_form" action="#" id="commentForm">
+                                                        <div class="row">
+
+                                                            <table class="table" style=" width: 60%;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="cell-level">&nbsp;</th>
+                                                                        <th>1 star</th>
+                                                                        <th>2 star</th>
+                                                                        <th>3 star</th>
+                                                                        <th>4 star</th>
+                                                                        <th>5 star</th>
+                                                                    </tr>
+                                                                </thead>
+
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="cell-level">Quality</td>
+                                                                        <td><input type="radio" name="quality"
+                                                                                class="radio-sm" value="1"></td>
+                                                                        <td><input type="radio" name="quality"
+                                                                                class="radio-sm" value="2"></td>
+                                                                        <td><input type="radio" name="quality"
+                                                                                class="radio-sm" value="3"></td>
+                                                                        <td><input type="radio" name="quality"
+                                                                                class="radio-sm" value="4"></td>
+                                                                        <td><input type="radio" name="quality"
+                                                                                class="radio-sm" value="5"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                                                        placeholder="Write Comment"></textarea>
+                                                                </div>
                                                             </div>
+
                                                         </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <input class="form-control" name="name" id="name"
-                                                                    type="text" placeholder="Name" />
-                                                            </div>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="button button-contactForm">Submit
+                                                                Review</button>
                                                         </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <input class="form-control" name="email" id="email"
-                                                                    type="email" placeholder="Email" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <input class="form-control" name="website" id="website"
-                                                                    type="text" placeholder="Website" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <button type="submit" class="button button-contactForm">Submit
-                                                            Review</button>
-                                                    </div>
-                                                </form>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endguest
+
                                     </div>
                                 </div>
                             </div>
