@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
@@ -309,6 +310,11 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(ActiveUserController::class)->group(function(){
        Route::get('/all/user' , 'AllUser')->name('all-user');
        Route::get('/all/vendor' , 'AllVendor')->name('all-vendor');
+    }); 
+
+    // Blog All Route 
+    Route::controller(BlogController::class)->group(function(){
+       Route::get('/admin/blog/category' , 'AdminBlogCategory')->name('admin.blog.category');
     }); 
 
 }); // Admin End Middleware 
