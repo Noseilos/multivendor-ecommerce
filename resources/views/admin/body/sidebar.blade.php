@@ -225,7 +225,7 @@
             <ul>
                 <li> <a href="{{ route('all.blog.category') }}"><i class="bx bx-right-arrow-alt"></i>All Blog Category</a>
                 </li>
-                <li> <a href="{{ route('all-vendor') }}"><i class="bx bx-right-arrow-alt"></i>All Blog Post</a>
+                <li> <a href="{{ route('all.blog.post') }}"><i class="bx bx-right-arrow-alt"></i>All Blog Post</a>
                 </li>
             </ul>
         </li>

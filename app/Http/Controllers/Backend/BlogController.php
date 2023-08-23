@@ -65,12 +65,12 @@ class BlogController extends Controller
 
         return redirect()->route('all.blog.category')->with($notification); 
 
-    }// End Method
+    }// End Method 
 
     public function DeleteBlogCategory($id){
 
         BlogCategory::findOrFail($id)->delete();
-        
+
         $notification = array(
             'message' => 'Blog Category Deleted Successfully',
             'alert-type' => 'success'
@@ -79,4 +79,24 @@ class BlogController extends Controller
         return redirect()->route('all.blog.category')->with($notification); 
 
     }// End Method
+
+
+
+    // ********************** Blog Post Methods **********************
+
+
+    
+    public function AllBlogPost(){
+
+        $blog_post = BlogPost::latest()->get();
+        return view('backend.blog.post.all_blog_post', compact('blog_post'));
+
+    }// End Method 
+
+    public function AddBlogPost(){
+        
+        $blog_category = BlogCategory::latest()->get();
+        return view('backend.blog.post.add_blog_post', compact('blog_category'));
+
+    }// End Method 
 }

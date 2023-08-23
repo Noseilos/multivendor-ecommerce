@@ -312,7 +312,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
        Route::get('/all/vendor' , 'AllVendor')->name('all-vendor');
     }); 
 
-    // Blog All Route 
+    // Blog Category All Route 
     Route::controller(BlogController::class)->group(function(){
        Route::get('/admin/blog/category' , 'AllBlogCategory')->name('all.blog.category');
        Route::get('/admin/add/blog/category' , 'AddBlogCategory')->name('add.blog.category');
@@ -320,6 +320,12 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
        Route::get('/admin/edit/blog/category/{id}' , 'EditBlogCategory')->name('edit.blog.category');
        Route::post('/admin/update/blog/category' , 'UpdateBlogCategory')->name('update.blog.category');
        Route::get('/admin/delete/blog/category/{id}' , 'DeleteBlogCategory')->name('delete.blog.category');
+    }); 
+
+    // Blog Post All Route 
+    Route::controller(BlogController::class)->group(function(){
+       Route::get('/admin/blog/post' , 'AllBlogPost')->name('all.blog.post');
+       Route::get('/admin/add/blog/post' , 'AddBlogPost')->name('add.blog.post');
     }); 
 
 }); // Admin End Middleware 
