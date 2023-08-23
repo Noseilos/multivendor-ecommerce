@@ -336,6 +336,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     // Admin Reviw All Route 
     Route::controller(ReviewController::class)->group(function(){
         Route::get('/pending/review' , 'PendingReview')->name('pending.review'); 
+        Route::get('/review/approve/{id}' , 'ReviewApprove')->name('review.approve'); 
    
     });
 
