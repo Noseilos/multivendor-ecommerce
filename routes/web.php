@@ -333,6 +333,12 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
        Route::get('/admin/delete/blog/post/{id}' , 'DeleteBlogPost')->name('delete.blog.post');
     }); 
 
+    // Admin Reviw All Route 
+    Route::controller(ReviewController::class)->group(function(){
+        Route::get('/pending/review' , 'PendingReview')->name('pending.review'); 
+   
+    });
+
 }); // Admin End Middleware 
 
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
