@@ -314,7 +314,9 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
     // Blog All Route 
     Route::controller(BlogController::class)->group(function(){
-       Route::get('/admin/blog/category' , 'AdminBlogCategory')->name('admin.blog.category');
+       Route::get('/admin/blog/category' , 'AllBlogCategory')->name('all.blog.category');
+       Route::get('/admin/add/blog/category' , 'AddBlogCategory')->name('add.blog.category');
+       Route::post('/admin/store/blog/category' , 'StoreBlogCategory')->name('store.blog.category');
     }); 
 
 }); // Admin End Middleware 
