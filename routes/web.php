@@ -475,6 +475,7 @@ Route::middleware(['auth','role:user'])->group(function() {
 
         // Order Tracking 
         Route::get('/user/track/order' , 'UserTrackOrder')->name('user.track.order');
+        Route::post('/order/tracking' , 'OrderTracking')->name('order.tracking');
 
     }); 
 
