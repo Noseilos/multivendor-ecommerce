@@ -6,6 +6,7 @@
 @endsection
 
 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -178,21 +179,62 @@
                 </div>
             </article>
             <div class="track">
-                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
-                        class="text">Order Pending</span> </div>
 
-                <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text">
-                        Order Confirmed</span> </div>
+                @if ($track->status == 'pending')
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
+                            class="text">Order Pending</span> </div>
 
-                <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span
-                        class="text">Order Processing </span> </div>
+                    <div class="step"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text">
+                            Order Confirmed</span> </div>
 
-                <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span
-                        class="text">Delivered </span> </div>
+                    <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span
+                            class="text">Order Processing </span> </div>
+
+                    <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span
+                            class="text">Delivered </span> </div>
+                @elseif($track->status == 'confirmed')
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
+                            class="text">Order Pending</span> </div>
+
+                    <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span
+                            class="text"> Order Confirmed</span> </div>
+
+                    <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span
+                            class="text">Order Processing </span> </div>
+
+                    <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span
+                            class="text">Delivered </span> </div>
+                @elseif($track->status == 'processing')
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
+                            class="text">Order Pending</span> </div>
+
+                    <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span
+                            class="text"> Order Confirmed</span> </div>
+
+                    <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span
+                            class="text">Order Processing </span> </div>
+
+                    <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span
+                            class="text">Delivered </span> </div>
+                @elseif($track->status == 'delivered')
+                    <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
+                            class="text">Order Pending</span> </div>
+
+                    <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span
+                            class="text"> Order Confirmed</span> </div>
+
+                    <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span
+                            class="text">Order Processing </span> </div>
+
+                    <div class="step active"> <span class="icon"> <i class="fa fa-box"></i> </span> <span
+                            class="text">Delivered </span> </div>
+                @endif
+
+
             </div>
 
             <hr>
-            <a href="#" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to
+            <a href="{{ route('user.track.order') }}" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to
                 orders</a>
         </div>
     </article>
