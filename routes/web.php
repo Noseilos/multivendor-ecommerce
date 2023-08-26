@@ -6,11 +6,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
+
 use App\Http\Middleware\RedirectIfAuthenticated;
+
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
@@ -21,8 +24,11 @@ use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\SiteSettingController;
+
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
+
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\CheckoutController;
@@ -341,6 +347,12 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/review/approve/{id}' , 'ReviewApprove')->name('review.approve'); 
         Route::get('/publish/review' , 'PublishReview')->name('publish.review'); 
         Route::get('/review/delete/{id}' , 'ReviewDelete')->name('review.delete');
+    });
+
+    // Site Setting All Route 
+    Route::controller(SiteSettingController::class)->group(function(){
+        Route::get('/site/setting' , 'SiteSetting')->name('site.setting');
+        Route::post('/site/setting/update' , 'SiteSettingUpdate')->name('site.setting.update');
     });
 
 }); // Admin End Middleware 
