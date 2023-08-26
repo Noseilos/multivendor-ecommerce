@@ -61,6 +61,11 @@
             </div>
         </div>
     </div>
+
+    @php
+        $setting = App\Models\SiteSetting::find(1);
+    @endphp
+
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
