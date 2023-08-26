@@ -1,5 +1,10 @@
 @extends('frontend.master_dashboard')
 @section('main')
+
+@section('title')
+    Home Noseilos Multi Vendor Shop 
+@endsection
+
     @include('frontend.home.slider')
 
     <!--End hero slider-->

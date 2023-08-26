@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Noseilos E-Commerce</title>
+    <title> @yield('title')</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

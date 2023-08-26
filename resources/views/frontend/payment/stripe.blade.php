@@ -1,5 +1,10 @@
 @extends('frontend.master_dashboard')
 @section('main')
+
+@section('title')
+   Stripe Payment
+@endsection
+
     <style>
         /**
      * The CSS shown here will not be introduced in the Quickstart guide, but shows
