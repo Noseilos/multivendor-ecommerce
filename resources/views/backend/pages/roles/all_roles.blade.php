@@ -40,10 +40,8 @@
                                     <td>{{ $item->name }}</td>
 
                                     <td>
-                                        <a href="{{ route('edit.permission', $item->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ route('delete.permission', $item->id) }}" class="btn btn-danger"
-                                            id="delete">Delete</a>
-
+                                        <a href="{{ route('edit.roles',$item->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ route('delete.roles',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
