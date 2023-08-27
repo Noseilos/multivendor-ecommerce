@@ -28,6 +28,7 @@
                             <tr>
                                 <th>Sl</th>
                                 <th>Roles Name </th>
+                                <th>Permission  </th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -36,11 +37,15 @@
                                 <tr>
                                     <td> {{ $key + 1 }} </td>
                                     <td>{{ $item->name }}</td>
+                                    <td> 
+                                        @foreach($item->permissions as $perm)
+                                        <span class="badge rounded-pill bg-danger"> {{ $perm->name }}</span>
+                                        @endforeach
+                                    </td> 
 
                                     <td>
                                         <a href="{{ route('admin.edit.roles', $item->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ route('delete.roles', $item->id) }}" class="btn btn-danger"
-                                            id="delete">Delete</a>
+                                        <a href="{{ route('admin.delete.roles',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
 
                                     </td>
                                 </tr>
@@ -52,6 +57,7 @@
                             <tr>
                                 <th>Sl</th>
                                 <th>Roles Name </th>
+                                <th>Permission  </th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
