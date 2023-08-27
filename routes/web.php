@@ -378,6 +378,10 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/edit/roles/{id}' , 'EditRoles')->name('edit.roles');
         Route::post('/update/roles' , 'UpdateRoles')->name('update.roles');
         Route::get('/delete/roles/{id}' , 'DeleteRoles')->name('delete.roles');
+        
+        // add role permission 
+
+        Route::get('/add/roles/permission' , 'AddRolesPermission')->name('add.roles.permission');
     });
 
 }); // Admin End Middleware 
