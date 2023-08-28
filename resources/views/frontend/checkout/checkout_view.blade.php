@@ -291,21 +291,23 @@
             $('select[name="district_id"]').on('change', function() {
                 var district_id = $(this).val();
                 if (district_id) {
-                    $.ajax({
-                        url: "{{ url('/state-get/ajax') }}/" + district_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function(data) {
-                            $('select[name="state_id"]').html('');
-                            var d = $('select[name="state_id"]').empty();
-                            $.each(data, function(key, value) {
-                                $('select[name="state_id"]').append('<option value="' +
-                                    value.id + '">' + value.state_name + '</option>'
-                                    );
-                            });
-                        },
+                    function district(){
+                        $.ajax({
+                            url: "{{ url('/state-get/ajax') }}/" + district_id,
+                            type: "GET",
+                            dataType: "json",
+                            success: function(data) {
+                                $('select[name="state_id"]').html('');
+                                var d = $('select[name="state_id"]').empty();
+                                $.each(data, function(key, value) {
+                                    $('select[name="state_id"]').append('<option value="' +
+                                        value.id + '">' + value.state_name + '</option>'
+                                        );
+                                });
+                            },
 
-                    });
+                        });
+                    }
                 } else {
                     alert('danger');
                 }
