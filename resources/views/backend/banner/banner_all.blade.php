@@ -45,9 +45,12 @@
                                     </td>
 
                                     <td>
-                                        
+                                        @if(Auth::user()->can('brand.edit'))
                                         <a href="{{ route('edit.banner',$item->id) }}" class="btn btn-info">Edit</a>
+                                        @endif
+                                        @if(Auth::user()->can('brand.edit'))
                                         <a href="{{ route('delete.banner',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
+                                        @endif
 
                                     </td>
                                 </tr>
