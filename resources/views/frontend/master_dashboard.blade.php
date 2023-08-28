@@ -425,7 +425,7 @@
                         </td>
                         <td class="image product-thumbnail pt-40"><img src="/${value.product.product_thambnail}" alt="#" /></td>
                         <td class="product-des product-name">
-                            <h6><a class="product-name mb-10" href="shop-product-right.html">${value.product.product_name} </a></h6>
+                            <h6><a class="product-name mb-10" href="/product/details/${value.product.id}/${value.product.product_slug}">${value.product.product_name} </a></h6>
                             <div class="product-rate-cover">
                                 <div class="product-rate d-inline-block">
                                     <div class="product-rating" style="width: 90%"></div>
