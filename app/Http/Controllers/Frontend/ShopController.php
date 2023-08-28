@@ -20,4 +20,8 @@ class ShopController extends Controller
         return view('frontend.product.shop_page',compact('products','categories','newProduct'));
   
     } // End Method 
+
+    public function ShopFilter(Request $request){
+
+    }// End Method 
 }
