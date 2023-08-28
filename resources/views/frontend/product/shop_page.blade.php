@@ -219,6 +219,14 @@
                     </div>
                     <div class="list-group">
                         <div class="list-group-item mb-10 mt-10">
+
+                            @if(!empty($_GET['category']))
+    @php
+    $filterCat = explode(',',$_GET['category']);
+    @endphp
+
+    @endif
+
                             <label class="fw-900">Category</label>
                             @foreach ($categories as $category)
                                 @php
@@ -226,9 +234,7 @@
                                 @endphp
 
                                 <div class="custome-checkbox">
-                                    <input class="form-check-input" type="checkbox" name="category[]"
-                                        id="exampleCheckbox{{ $category->id }}"
-                                        value="{{ $category->category_slug }}" onchange="this.form.submit()" />
+                                    <input class="form-check-input" type="checkbox" name="category[]" id="exampleCheckbox{{ $category->id }}" value="{{ $category->category_slug }}" @if(!empty($filterCat) && in_array($category->category_slug,$filterCat)) checked @endif  onchange="this.form.submit()" />
                                     <label class="form-check-label"
                                         for="exampleCheckbox{{ $category->id }}"><span>{{ $category->category_name }}
                                             ({{ count($products) }})</span></label>
