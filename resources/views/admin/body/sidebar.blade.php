@@ -19,6 +19,7 @@
             </a>
         </li>
 
+        @if(Auth::user()->can('brand.menu'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
@@ -26,13 +27,20 @@
                 <div class="menu-title">Brand</div>
             </a>
             <ul>
+                @if(Auth::user()->can('brand.list'))
                 <li> <a href="{{ route('all.brand') }}"><i class="bx bx-right-arrow-alt"></i>All Brand</a>
                 </li>
+                @endif
+                @if(Auth::user()->can('brand.add'))
                 <li> <a href="{{ route('add.brand') }}"><i class="bx bx-right-arrow-alt"></i>Add Brand </a>
                 </li>
+                @endif
 
             </ul>
         </li>
+        @endif
+
+        @if(Auth::user()->can('category.menu'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -40,12 +48,17 @@
                 <div class="menu-title">Category</div>
             </a>
             <ul>
+                @if(Auth::user()->can('category.list'))
                 <li> <a href="{{ route('all.category') }}"><i class="bx bx-right-arrow-alt"></i>All Category</a>
                 </li>
+                @endif
+                @if(Auth::user()->can('category.add'))
                 <li> <a href="{{ route('add.category') }}"><i class="bx bx-right-arrow-alt"></i>Add Category</a>
                 </li>
+                @endif
             </ul>
         </li>
+        @endif
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -62,6 +75,7 @@
             </ul>
         </li>
 
+        @if(Auth::user()->can('product.menu'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -69,13 +83,18 @@
                 <div class="menu-title">Product Manage</div>
             </a>
             <ul>
+                @if(Auth::user()->can('product.list'))
                 <li> <a href="{{ route('all.product') }}"><i class="bx bx-right-arrow-alt"></i>All Product</a>
                 </li>
+                @endif
+                @if(Auth::user()->can('product.add'))
                 <li> <a href="{{ route('add.product') }}"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
                 </li>
+                @endif
 
             </ul>
         </li>
+        @endif
 
         <li>
             <a href="javascript:;" class="has-arrow">
