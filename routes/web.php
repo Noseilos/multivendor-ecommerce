@@ -29,6 +29,7 @@ use App\Http\Controllers\Backend\RoleController;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\ShopController;
 
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CompareController;
@@ -473,6 +474,11 @@ Route::controller(ReviewController::class)->group(function(){
 Route::controller(IndexController::class)->group(function(){
     Route::post('/search' , 'ProductSearch')->name('product.search'); 
     Route::post('/search-product' , 'SearchProduct'); 
+});
+
+// Shop Page All Route 
+Route::controller(ShopController::class)->group(function(){
+    Route::get('/shop' , 'ShopPage')->name('shop.page');
 });
 
 /// User All Route
